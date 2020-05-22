@@ -5,6 +5,7 @@
 
 const db = require('../database/db-helper');
 const bc = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const validateNewUser = async (req, res, next) => {
   const { body } = req;
