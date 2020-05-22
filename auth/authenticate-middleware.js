@@ -46,7 +46,7 @@ const validateLogin = async (req, res, next) => {
   if (!user) return fail(res, 'Invalid credentials.');
 
   // Test whether password matches.
-  if (!tryPassword(password, user.password)) return fail(res, 'Invalid credentials.');
+  if (!(await tryPassword(password, user.password))) return fail(res, 'Invalid credentials.');
   
   req.user = user;
   next();
